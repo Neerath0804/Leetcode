@@ -12,7 +12,7 @@ public:
             {
                 zeroes++;
             }
-            while(zeroes > k)
+            if(zeroes > k)
             {
                 if(nums[left] == 0)zeroes--;
                 left ++;
