@@ -1,15 +1,14 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        vector<int>freq1(26,0),freq2(26,0);
-        for(char c : s)
+        unordered_map<char,int>mpp1,mpp2;
+        int n = s.size(), m = t.size();
+        if(n != m)return false;
+        for(int i = 0; i < n; i++)
         {
-            freq1[c-'a']++;
+            mpp1[s[i]]++;
+            mpp2[t[i]]++;
         }
-        for(char c : t)
-        {
-            freq2[c-'a']++;
-        }
-        return freq1 == freq2;
+        return mpp1 == mpp2;
     }
 };
