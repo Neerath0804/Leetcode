@@ -9,18 +9,17 @@ public:
             {
                 st.push(s[i]);
             }
-            else 
+            else
             {
-                if(st.size() == 0)return false;
-                if((st.top() == '(' && s[i] == ')') 
-                ||(st.top() == '[' &&  s[i] == ']') 
-                || (st.top() == '{' && s[i] == '}'))
-            {
-                st.pop();
+                if(st.empty())return false;
+                if((s[i] == ')' && st.top() == '(') || (s[i] ==']' && st.top() == '[') || (s[i] == '}' && st.top() == '{'))
+                {
+                    st.pop();
+                }
+                else return false;
             }
-            else return false;
-            }
+            
         }
-        return st.size() == 0;
+        return st.empty();
     }
 };
